@@ -55,7 +55,9 @@ end
 
 def self.find_by(hash)
   binding.pry
-  sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}'"
+  value = hash.values.first
+  formatted_val = value.class == FIXNUM ? value : "'{value}'"
+  sql = "SELECT * FROM #{self.table_name} WHERE #{hash.keys.first} = '#{formatted_val}'"
   DB[:conn].execute(sql)
 end
 
