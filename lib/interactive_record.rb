@@ -54,7 +54,6 @@ def self.find_by_name(name)
 end
 
 def self.find_by(hash)
-  binding.pry
   value = hash.values.first
   formatted_val = value.class == FIXNUM ? value : "'{value}'"
   sql = "SELECT * FROM #{self.table_name} WHERE #{hash.keys.first} = '#{formatted_val}'"
