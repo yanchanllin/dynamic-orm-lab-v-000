@@ -54,7 +54,7 @@ def self.find_by_name(name)
 end
 
 def self.find_by(options={})
-  sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}', grade = '#{grade}'"
+  sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}'"
   DB[:conn].execute(sql)
 end
 
